@@ -1,0 +1,22 @@
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: MsSql
+    restart: always                               # Garante que o contêiner suba automaticamente
+    environment:
+      - ACCEPT_EULA=Y                             # Aceita os termos de licença
+      - MSSQL_SA_PASSWORD=SenhaForte8Caracteres   # Define a senha do usuário SA
+      - MSSQL_PID=Express                         # Define a edição do SQL Server como Express
+    ports:
+      - 1433:1433                                 # Mapeia a porta 1433 para o host
+    volumes:
+      - /caminho/no/host:/caminho/no/container    # Persistência dos dados do banco
+    networks:
+      - mssql_network
+
+networks:
+  mssql_network:
+    driver: bridge
+
+# Foi necessário rodar o seguinte comando na pasta onde estava o docker-compose.yml senão ocorre erro de permissão
+# sudo chown -R 10001:10001 .
