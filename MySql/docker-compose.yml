@@ -2,7 +2,7 @@
 services:
   mysql:
     image: mysql:latest
-    container_name: MySql
+    container_name: mysql_docker
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: AlgumaSenha              # Defina a senha do root
@@ -10,7 +10,7 @@ services:
     ports:
       - "3306:3306"                                 # Mapeia a porta 3306 do contêiner para a máquina host
     volumes:
-      - /caminho/no/host:/caminho/no/container      # Monta o diretório local para persistência de dados
+      - /Users/marciooshiro/Projects/DBs/BancosMySql:/var/lib/mysql      # Monta o diretório local para persistência de dados
     networks:
       - mysql_network
 

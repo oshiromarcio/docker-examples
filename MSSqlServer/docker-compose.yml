@@ -10,7 +10,7 @@ services:
     ports:
       - 1433:1433                                 # Mapeia a porta 1433 para o host
     volumes:
-      - /caminho/no/host:/caminho/no/container    # Persistência dos dados do banco
+      - /Users/marciooshiro/Projects/DBs/BancosSqlServer:/var/opt/mssql    # Persistência dos dados do banco
     networks:
       - mssql_network
 
